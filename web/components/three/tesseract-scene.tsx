@@ -28,7 +28,7 @@ for (let a = 0; a < 16; a++) {
 const CYAN = new THREE.Color("#3df2e0");
 const MAGENTA = new THREE.Color("#ff3dcb");
 const PROJ_DIST = 3; // distancia de la "cámara 4D"
-const FLOOR_Y = -2.4;
+const FLOOR_Y = -2.1;
 
 function rotate(p: Vec4, i: number, j: number, angle: number) {
   const c = Math.cos(angle);
@@ -102,7 +102,7 @@ function Tesseract({ unfolded, onToggle }: { unfolded: boolean; onToggle: () => 
       const w = p[3] * (1 + s.unfold * 0.8);
       const k = 1.8 / (PROJ_DIST - w * 0.55);
       const v = s.projected[i].set(p[0] * k, p[1] * k, p[2] * k);
-      v.multiplyScalar(1 + s.unfold * 0.35);
+      v.multiplyScalar(1 + s.unfold * 0.2);
       s.w[i] = p[3];
 
       // Deformación orgánica según la velocidad del cursor.
@@ -154,9 +154,8 @@ function Tesseract({ unfolded, onToggle }: { unfolded: boolean; onToggle: () => 
     }
 
     if (group.current) {
-      // Más chico en pantallas angostas y un poco elevado para dejar lugar al título.
+      // Más chico en pantallas angostas.
       group.current.scale.setScalar(Math.min(1, viewport.width / 4.2));
-      group.current.position.y = 0.45;
       group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, pointer.x * 0.5, 2, delta);
       group.current.rotation.x = THREE.MathUtils.damp(group.current.rotation.x, -pointer.y * 0.35, 2, delta);
     }

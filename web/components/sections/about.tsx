@@ -2,22 +2,44 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 import { HyperText } from "@/components/magicui/hyper-text";
 import { TiltCard } from "@/components/magicui/tilt-card";
 import { Icon } from "@/components/icons";
-import { areas } from "@/lib/data";
+import { areas, BASE, perfil } from "@/lib/data";
 import { Terminal } from "./terminal";
 
 export function About() {
   return (
     <section id="quien-soy" className="relative mx-auto max-w-6xl px-4 py-28 sm:px-6">
-      <BlurFade>
-        <p className="font-mono text-xs uppercase tracking-[0.4em] text-magenta">01 · Caja negra</p>
-        <h2 className="mt-3 text-4xl font-bold sm:text-5xl">
-          <HyperText>Quién soy</HyperText>
-        </h2>
-        <p className="mt-4 max-w-2xl text-dim">
-          Un laboratorio donde conviven tres obsesiones: romper sistemas, construir software y diseñar mundos
-          jugables. Interrogá a la terminal o explorá las tarjetas.
-        </p>
-      </BlurFade>
+      <div className="flex flex-col-reverse gap-10 sm:flex-row sm:items-end sm:justify-between">
+        <BlurFade>
+          <p className="font-mono text-xs uppercase tracking-[0.4em] text-magenta">01 · Caja negra</p>
+          <h2 className="mt-3 text-4xl font-bold sm:text-5xl">
+            <HyperText>Quién soy</HyperText>
+          </h2>
+          <p className="mt-4 max-w-2xl text-dim">
+            Soy {perfil.nombre}. Este es un laboratorio donde conviven tres obsesiones: romper sistemas, construir
+            software y diseñar mundos jugables. Interrogá a la terminal o explorá las tarjetas.
+          </p>
+        </BlurFade>
+
+        <BlurFade delay={0.15} className="w-44 shrink-0 self-center sm:w-52 sm:self-auto">
+          <TiltCard glow="#ff3dcb" maxTilt={14} className="overflow-hidden">
+            <figure className="scanlines relative">
+              <img
+                src={`${BASE}/img/perfilBlack.png`}
+                alt={`Foto de ${perfil.nombre}`}
+                width={375}
+                height={500}
+                className="block aspect-3/4 w-full rounded-t-2xl object-cover"
+              />
+              <figcaption className="flex items-center justify-between border-t border-line px-3 py-2 font-mono text-[10px] uppercase tracking-widest">
+                <span className="text-dim">expediente</span>
+                <span className="flex items-center gap-1.5 text-acid">
+                  <span className="size-1.5 animate-blink rounded-full bg-acid" /> activo
+                </span>
+              </figcaption>
+            </figure>
+          </TiltCard>
+        </BlurFade>
+      </div>
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_1fr]">
         <BlurFade delay={0.1}>

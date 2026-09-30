@@ -6,6 +6,7 @@ const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk" }
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://onurbsofa.github.io"),
   title: "Bruno Fazio — Percepción",
   description:
     "Portfolio de Bruno Fazio: desarrollo full stack, ciberseguridad y videojuegos. Una experiencia interactiva en 3D/4D.",
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     description: "Desarrollo full stack, ciberseguridad y videojuegos.",
     locale: "es_AR",
     type: "website",
+    images: [{ url: "/Portfolio/img/linkedin_banner_teseracto.png", width: 1584, height: 396 }],
   },
 };
 

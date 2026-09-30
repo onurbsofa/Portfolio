@@ -78,16 +78,11 @@ export function Projects() {
                   ))}
                 </ul>
                 <div className="mt-5 flex gap-5 text-sm">
-                  {p.demo && (
-                    <a href={p.demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-ink hover:text-cyan">
-                      <Icon name="external" className="size-4" /> Ver demo
+                  {p.enlaces.map((e) => (
+                    <a key={e.href} href={e.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-ink hover:text-cyan">
+                      <Icon name={e.icon} className="size-4" /> {e.label}
                     </a>
-                  )}
-                  {p.codigo && (
-                    <a href={p.codigo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-ink hover:text-cyan">
-                      <Icon name="github" className="size-4" /> Código
-                    </a>
-                  )}
+                  ))}
                 </div>
               </div>
             </TiltCard>
